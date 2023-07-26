@@ -25,7 +25,7 @@ const register = async (req, res) => {
   const verifyEmail = {
     to: email,
     subject: "Verify email",
-    html: `<a taret="_blank" href="http://localhost:3011/api/auth/verify/${verificationToken}">Click Here</a>`,
+    html: `<a taret="_blank" href="https://nodejs-hw-goit-03-restapi.onrender.com/api/auth/verify/${verificationToken}">Click Here</a>`,
   };
   await sendEmail(verifyEmail);
   // Поверненя даних на фронт (пошта)
