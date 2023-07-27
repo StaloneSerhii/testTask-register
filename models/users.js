@@ -12,6 +12,17 @@ const userSchema = new Schema(
       required: [true, "Email is required"],
       unique: true,
     },
+    name: {
+      type: String,
+      required: [true, "Name is required"],
+    },
+    lastName: {
+      type: String,
+      required: [true, "lastName is required"],
+    },
+    phone: {
+      type: Number,
+    },
     token: String,
     verify: {
       type: Boolean,

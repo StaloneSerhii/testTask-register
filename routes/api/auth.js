@@ -18,7 +18,6 @@ router.post(
 );
 router.get("/verify/:verificationToken", cntl.verificationToken);
 router.post("/login", validateBody(schemasAuth.loginSchema), cntl.login);
-// router.get("/current", authenticate, cntl.current);
 router.post("/logout", authenticate, cntl.logout);
 
 module.exports = router;

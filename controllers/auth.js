@@ -6,6 +6,7 @@ const { SECRET_KEY } = process.env;
 const { nanoid } = require("nanoid");
 
 const register = async (req, res) => {
+  console.log();
   const { email, password } = req.body;
   /* Пошук існуючиш пошт */
   const user = await User.findOne({ email });
@@ -16,6 +17,7 @@ const register = async (req, res) => {
   const result = await bcrypt.hash(password, 10);
   // Генеруваня токена веретифікації для відправки на пошту
   const verificationToken = nanoid();
+  console.log(req.body);
   const newUser = await User.create({
     ...req.body,
     password: result,
@@ -27,7 +29,7 @@ const register = async (req, res) => {
     subject: "Verify email",
     html: `<a taret="_blank" href="https://nodejs-hw-goit-03-restapi.onrender.com/api/auth/verify/${verificationToken}">Click Here</a>`,
   };
-  await sendEmail(verifyEmail);
+  // await sendEmail(verifyEmail);
   // Поверненя даних на фронт (пошта)
   res
     .status(201)
