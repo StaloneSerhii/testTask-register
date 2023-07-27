@@ -29,7 +29,7 @@ const register = async (req, res) => {
     subject: "Verify email",
     html: `<a taret="_blank" href="https://nodejs-hw-goit-03-restapi.onrender.com/api/auth/verify/${verificationToken}">Click Here</a>`,
   };
-  // await sendEmail(verifyEmail);
+  await sendEmail(verifyEmail);
   // Поверненя даних на фронт (пошта)
   res
     .status(201)

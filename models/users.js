@@ -21,7 +21,8 @@ const userSchema = new Schema(
       required: [true, "lastName is required"],
     },
     phone: {
-      type: Number,
+      type: String,
+      required: [true, "phone is required"],
     },
     token: String,
     verify: {
